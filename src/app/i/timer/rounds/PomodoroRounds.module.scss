@@ -1,0 +1,35 @@
+.container {
+	@apply flex items-center justify-center gap-2;
+}
+
+.roundsContainer {
+	@apply flex gap-3 items-center justify-center mt-1;
+}
+
+.button {
+	@apply opacity-20 hover:opacity-100 disabled:opacity-20 transition-opacity mt-1;
+}
+
+.round {
+	@apply rounded border border-border w-5 h-5 relative;
+
+	&::before {
+		@apply bg-primary rounded-l transition-all duration-300;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+	}
+
+	&.active::before {
+		@apply duration-1000;
+		width: 40%;
+	}
+
+	&.completed::before {
+		@apply rounded;
+		width: 100%;
+	}
+}

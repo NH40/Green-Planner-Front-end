@@ -1,0 +1,59 @@
+.board {
+	@apply grid grid-flow-col gap-8 w-full;
+	overflow-x: auto;
+
+	.column {
+		@apply w-[17rem];
+		white-space: nowrap;
+		min-height: 79vh;
+
+		.card {
+			@apply rounded border border-border mt-5 p-4 relative bg-[#0e0f0f];
+
+			&.completed {
+				@apply italic line-through opacity-50;
+			}
+
+			.cardHeader {
+				@apply flex items-center mb-2;
+				font-size: 93%;
+
+				> input:last-child {
+					@apply ml-2;
+				}
+			}
+
+			.cardBody,
+			.cardBody > div > button > span,
+			.cardBody > div > div > button > span {
+				font-size: 83%;
+			}
+
+			.cardBody {
+				> div {
+					@apply mb-2.5 w-max;
+					min-width: 6rem;
+
+					> button:last-child {
+						@apply opacity-15;
+					}
+				}
+			}
+
+			.cardActions {
+				@apply absolute bottom-1 right-1.5 opacity-40;
+			}
+		}
+	}
+}
+
+.grip {
+	@apply opacity-20 transition-opacity -ml-1 -mr-0.5 absolute top-2 right-1.5;
+
+	&:hover,
+	&:active {
+		.grip {
+			@apply opacity-100;
+		}
+	}
+}
